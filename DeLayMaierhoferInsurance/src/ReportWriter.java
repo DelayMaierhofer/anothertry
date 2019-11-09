@@ -13,6 +13,45 @@ public class ReportWriter {
 		}
 	}
 	
+	   public static boolean writeMembersToTextFile(String fname,   //write to txt file - Emily De Lay
+			    ArrayList<Members> customer) {
+			        try {
+   PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
+			        for (Members m: customer) {
+			                pw.println(m);
+			            }
+			            pw.close();
+			            return true;
+			        } catch (Exception ex) {
+			            return false;
+			        }
+			    }
+	    public static boolean writePeopleToXML(String fname, //write to xml - Emily De Lay
+	    	    ArrayList<Members> mem) {
+	    	        try {
+	    	        	
+	    	            XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new
+	    	                    FileOutputStream(fname)));
+	    	            enc.writeObject(mem);
+	    	            enc.close();
+	    	            return true;
+	    	        } catch (Exception ex) {
+	    	            return false;
+	    	        }
+	    	    }
+	   
+	
+	public static boolean writeMembersToBinary(String fname,  //writes to binary function - Emily De Lay
+		    ArrayList<Members> customer) {
+		        try {
+		            ObjectOutputStream oof = new ObjectOutputStream(new FileOutputStream(fname));
+		            oof.writeObject(customer);
+		            oof.close();
+		            return true;
+		        } catch (Exception ex) {
+		            return false;
+		        }
+		    }	
 
 	
 	//Mackenzie Maierhofer
