@@ -67,6 +67,13 @@ public static void welcome() {
 			System.out.println("Something bad happened ."); //OOF
 		} else {
 		do { 
+		    System.out.println("**********************************");
+		    try {
+				countmembers(fname);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				
+			}
 			System.out.println("Here are your choices: ");
 		    Menu(); //shows menu to user
 		    System.out.println("Please enter your choice: ");
@@ -75,13 +82,7 @@ public static void welcome() {
 /************************************************************************/
 			if (choice == 1) {  //CHOICE 1 Emily De Lay
 			    System.out.println("The members:");
-			    System.out.println("**********************************");
-			    try {
-					countmembers(fname);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					
-				}
+
 			    System.out.println("**********************************");
 				ReportWriter.writeMembersToScreen(InsurList);
 				System.out.println("**********************************");
