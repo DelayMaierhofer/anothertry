@@ -1,5 +1,5 @@
-/*
- *Member Reader Class- Emily De Lay
+/*//DeLay & Maierhofer  
+*Member Reader Class- Emily De Lay
  *This class is meant to read the tabbed file
  *And put it into an array list
  */
