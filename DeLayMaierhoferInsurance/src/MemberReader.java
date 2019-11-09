@@ -7,7 +7,21 @@
 import java.util.ArrayList;    
 import java.util.Scanner;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 public class MemberReader {
+	
+    public static ArrayList<Members> readFromBinary(String fname) {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname));
+            @SuppressWarnings("unchecked")
+			ArrayList<Members> result = (ArrayList<Members>)ois.readObject();
+            ois.close();
+            return result;
+        } catch (Exception ex) {
+            return null;
+        }
+    }
 			/************************************************************************/ 
 	public static ArrayList<Members> readNamesFromTextFile(String fname) { 
 		try {
