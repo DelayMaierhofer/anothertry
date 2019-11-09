@@ -59,6 +59,7 @@ public static void welcome() {
  public static void main(String[] args) throws Exception { //this is the main 
 		Scanner sc = new Scanner(System.in); //scanner to talk with user
 		int choice = 0; //for users choice
+		String choice2 = null;
 		welcome();
 		System.out.println("Enter the name of the file: "); //user put name of file
 		String fname = sc.nextLine(); //where the data for the program will come from 
@@ -92,17 +93,46 @@ public static void welcome() {
 				 System.out.println("Now adding a new member...");
 				 ReportWriter.addNewMember(InsurList);
 			}
+			 // /Users/emilydelay/Desktop/insurance.txt
 			if (choice == 3) {
 				
+				//save members
+				System.out.println("save in binary (B) Save in text (T) "
+						+ "save in xml (X)");
+				System.out.println("enter your choice: ");
+				choice2 = sc.nextLine();
+				
+				if (choice2.equals("B")) {
+					
+				System.out.println("Going to write members in binary: ");
+		        System.out.print("Enter filename: ");
+		        fname = sc.nextLine();
+		        ReportWriter.writeMembersToBinary(fname, InsurList);
+		        
+		        System.out.println("Now will read them back in.");
+		        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
+		        ReportWriter.writeMembersToScreen(readFromBin);
+				}
 			}
+		        if (choice2.equals("T")) {
+		        	
+		        }
+		        	
+		        	if (choice2.equals("X")) {
+		        		
+		        	
+				}
+				    
+				
 			
 			
 		}while (choice != 7);
 		
 		System.out.println("thanks for using this bye");
-		}	
-	}
+		}
+ }
+		}
+ 
+		
 
 	
-
-}
