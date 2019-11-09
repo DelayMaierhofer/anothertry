@@ -12,6 +12,46 @@ public class ReportWriter {
 			System.out.println(Insur);
 		}
 	}
+	
+	   public static boolean writeMembersToTextFile(String fname,   //write to txt file
+			    ArrayList<Members> customer) {
+			        try {
+   PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
+			        for (Members m: customer) {
+			                pw.println(m);
+			            }
+			            pw.close();
+			            return true;
+			        } catch (Exception ex) {
+			            return false;
+			        }
+			    }
+	    public static boolean writePeopleToXML(String fname, //write to xml
+	    	    ArrayList<Members> mem) {
+	    	        try {
+	    	        	
+	    	            XMLEncoder enc = new XMLEncoder(new BufferedOutputStream(new
+	    	                    FileOutputStream(fname)));
+	    	            enc.writeObject(mem);
+	    	            enc.close();
+	    	            return true;
+	    	        } catch (Exception ex) {
+	    	            return false;
+	    	        }
+	    	    }
+	
+	public static boolean writeMembersToBinary(String fname,  //writes to binary function
+		    ArrayList<Members> customer) {
+		        try {
+		            ObjectOutputStream oof = new ObjectOutputStream(new FileOutputStream(fname));
+		            oof.writeObject(customer);
+		            oof.close();
+		            return true;
+		        } catch (Exception ex) {
+		            return false;
+		        }
+		    }
+	
 	//Mackenzie Maierhofer
 	public static void addNewMember(ArrayList<Members> InsurList) { //adds a new member to arraylist
 		Scanner sc = new Scanner(System.in);
