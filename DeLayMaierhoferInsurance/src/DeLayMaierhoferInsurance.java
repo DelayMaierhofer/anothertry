@@ -1,5 +1,12 @@
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.LineNumberReader;
+import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 /*emily De Lay and Mackenzie Maierhofer's project
  * insurence calculator
  * 
@@ -8,7 +15,7 @@ import java.util.Scanner;
  * age, bmi, blood pressure, used by points
  */
 public class DeLayMaierhoferInsurance { 
-
+//static int count = 0;
 public static void welcome() { 
 	System.out.println("**********************************");
 	System.out.println("Welcome to the insurance app");
@@ -25,8 +32,31 @@ public static void welcome() {
 	 System.out.println("6. Save assessments as JSON");
 	 System.out.println("7. Exit");
 }
- /************************************************************************/ //emily de lay
- public static void main(String[] args) { //this is the main 
+ // /Users/emilydelay/Desktop/insurance.txt
+ public static void countmembers(String fname) throws Exception{
+	 int membercounter = 0;
+	  FileReader fr = new FileReader(fname);
+	  //needs to read file
+	  String member = "This is the number of members found: ";
+	    LineNumberReader count = new LineNumberReader(fr);
+	    
+	    
+          while (count.readLine() != null){
+        	  //since each member is on 1 line, 
+        	  //we will count each line of the file.
+      	membercounter++;
+          }
+
+          System.out.println(member + membercounter);
+          //prints output
+
+          count.close();
+	
+ }
+ 
+ /**
+ * @throws Exception **********************************************************************/ //emily de lay
+ public static void main(String[] args) throws Exception { //this is the main 
 		Scanner sc = new Scanner(System.in); //scanner to talk with user
 		int choice = 0; //for users choice
 		welcome();
@@ -45,6 +75,13 @@ public static void welcome() {
 /************************************************************************/
 			if (choice == 1) {  //CHOICE 1 Emily De Lay
 			    System.out.println("The members:");
+			    System.out.println("**********************************");
+			    try {
+					countmembers(fname);
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					
+				}
 			    System.out.println("**********************************");
 				ReportWriter.writeMembersToScreen(InsurList);
 				System.out.println("**********************************");
