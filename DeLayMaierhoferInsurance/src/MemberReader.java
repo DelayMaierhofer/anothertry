@@ -1,11 +1,9 @@
-//DeLay & Maierhofer
-
-//reads the insurance file 
 /*
  *Member Reader Class- Emily De Lay
  *This class is meant to read the tabbed file
  *And put it into an array list
  */
+//reads the insurance file
 import java.util.ArrayList;    
 import java.util.Scanner;
 import java.io.File;
