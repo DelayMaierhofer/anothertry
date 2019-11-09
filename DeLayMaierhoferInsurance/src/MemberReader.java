@@ -10,8 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 public class MemberReader {
-	
-    public static ArrayList<Members> readFromBinary(String fname) {
+    public static ArrayList<Members> readFromBinary(String fname) { //read from binary
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname));
             @SuppressWarnings("unchecked")
