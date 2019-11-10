@@ -5,11 +5,14 @@
  */
 //reads the insurance file
 import java.util.ArrayList;    
+
 import java.util.Scanner;
+import java.beans.XMLDecoder;
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
-public class MemberReader {
+	/************************************************************************/ //Emily De Laypublic class MemberReader {
     public static ArrayList<Members> readFromBinary(String fname) { //read from binary
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname));
