@@ -12,6 +12,7 @@ import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+public class MemberReader {
 	/************************************************************************/ //Emily De Laypublic class MemberReader {
     public static ArrayList<Members> readFromBinary(String fname) { //read from binary
         try {
