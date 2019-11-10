@@ -21,7 +21,20 @@ public class MemberReader {
             return null;
         }
     }
-			/************************************************************************/ 
+ /************************************************************************/ //Emily De Lay
+	public static ArrayList<Members> readStudentsFromXML(String fname) {
+		try {
+			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new 
+					FileInputStream(fname)));
+			ArrayList<Members> result = (ArrayList<Members>)dec.readObject();
+			dec.close();
+			
+			return result;
+		} catch (Exception ex) {
+			return null;
+		}
+		}
+	/************************************************************************/ 
 	public static ArrayList<Members> readNamesFromTextFile(String fname) { 
 		try {
 			ArrayList<Members> InsurList = new ArrayList<Members>();
