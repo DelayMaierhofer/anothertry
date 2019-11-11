@@ -138,6 +138,13 @@ public static void welcome() {
 					fname = sc.nextLine();
 					MemberReader.readFromBinary(fname);
 				}
+				
+				if (choice2.equals("T")) {
+					System.out.print("Enter name of input file: ");
+					sc.hasNextLine();
+					fname = sc.nextLine();
+					MemberReader.readFromTextOption4(fname);
+				}
 		
 			}
 				    

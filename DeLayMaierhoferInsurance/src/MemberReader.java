@@ -82,6 +82,7 @@ public class MemberReader {
 			    diabetes = parts[8].trim();; //string diabetes
 			    Alzheimers = parts[9].trim();; //string Alzheimers
 			    
+			    System.out.printf("%d members were read.", count);
 			    InsurList.add(new Members(name, lastname, age, height, weight, 
 			    		BPSy, BPdias, cancer, diabetes, Alzheimers)); 
 			 /************************************************************************/
@@ -94,6 +95,83 @@ public class MemberReader {
 			ex.printStackTrace();
 			return null; //null if file can't be read
 		}
+	}
+		
+		
+		public static ArrayList<Members> readFromTextOption4(String fname) { 
+			try {
+				ArrayList<Members> InsurList = new ArrayList<Members>();
+				Scanner fsc = new Scanner(new File(fname));
+				String line;
+				String[] parts;
+				int count = 0;
+				//the variables are listed below 
+				String name; String lastname; int age = 0; int height = 0;
+				int weight = 0; int BPSy = 0; int BPdias = 0; String cancer = null;
+				String diabetes = null; String Alzheimers = null;
+				/************************************************************************/ //Emily De Lay
+				fsc.nextLine();
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split(""); //the file is tab 
+					//System.out.println(line);
+					name = parts[0].trim();  //string name
+					lastname = parts[1].trim(); //string lastname
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+					age = Integer.parseInt(parts[1]);  //int age
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    height = Integer.parseInt(parts[1]); //int height
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    weight = Integer.parseInt(parts[1]); //int weight
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    BPSy = Integer.parseInt(parts[3]); //int BPSy
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    BPdias = Integer.parseInt(parts[3]); //int BPdias
+
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    cancer = parts[1].trim(); //string cancer
+
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    diabetes = parts[1].trim();; //string diabetes
+				}
+				if (fsc.hasNextLine()) {
+					line = fsc.nextLine().trim();
+					parts = line.split("");
+				    Alzheimers = parts[1].trim();; //string Alzheimers
+				}				    
+				    System.out.printf("%d members were read.", count);
+				    InsurList.add(new Members(name, lastname, age, height, weight, 
+				    		BPSy, BPdias, cancer, diabetes, Alzheimers)); 
+				 /************************************************************************/
+				}
+				
+				fsc.close(); //closing the file
+				return InsurList; //returns the array list 
+				
+			}catch (Exception ex){
+				ex.printStackTrace();
+				return null; //null if file can't be read
+			}
 		
 	
 	}
