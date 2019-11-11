@@ -69,12 +69,12 @@ public static void welcome() {
 		} else {
 		do { 
 		    System.out.println("**********************************");
-		    try {
-				countmembers(fname);
-			} catch (IOException e) {
+		    //try {
+				//countmembers(fname);
+			//} catch (IOException e) {
 				// TODO Auto-generated catch block
 				
-			}
+			//}
 			System.out.println("Here are your choices: ");
 		    Menu(); //shows menu to user
 		    System.out.println("Please enter your choice: ");
@@ -100,26 +100,32 @@ public static void welcome() {
 				System.out.println("save in binary (B) Save in text (T) "
 						+ "save in xml (X)");
 				System.out.println("enter your choice: ");
-				sc.nextLine();
+				sc.nextLine(); //needs to read over a line
 				choice2 = sc.nextLine();
 				
 				if (choice2.equals("B")) {
 					
-				System.out.println("Going to write members in binary: ");
-		        System.out.print("Enter filename: ");
-		        fname = sc.nextLine();
-		        ReportWriter.writeMembersToBinary(fname, InsurList);
+					System.out.println("Going to write members in binary: ");
+					System.out.print("Enter filename: ");
+					fname = sc.nextLine();
+					ReportWriter.writeMembersToBinary(fname, InsurList);
 		        
-		        System.out.println("Now will read them back in.");
-		        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
-		        ReportWriter.writeMembersToScreen(readFromBin);
+		        //System.out.println("Now will read them back in.");
+		        //ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
+		        //ReportWriter.writeMembersToScreen(readFromBin);
 				}
 		        if (choice2.equals("T")) {
-		        	
+		        	System.out.println("Going to write members in a text file: ");
+		        	System.out.print("Enter filename: ");
+		        	fname = sc.nextLine();
+		        	ReportWriter.writeMembersToTextFile(fname, InsurList);
 		        }
 		        	
 		        if (choice2.equals("X")) {		
-		        	
+		        	System.out.println("Going to write members to xml: ");
+		        	System.out.print("Enter filename: ");
+		        	fname = sc.nextLine();
+		        	ReportWriter.writePeopleToXML(fname, InsurList);
 				}
 			}
 				    

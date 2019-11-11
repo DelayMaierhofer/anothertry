@@ -45,6 +45,7 @@ public class MemberReader {
 			Scanner fsc = new Scanner(new File(fname));
 			String line;
 			String[] parts;
+			int count = 0;
 			//the variables are listed below 
 			String name; String lastname; int age; int height;
 			int weight; int BPSy; int BPdias; String cancer;
@@ -65,7 +66,6 @@ public class MemberReader {
 			    cancer = parts[7].trim(); //string cancer
 			    diabetes = parts[8].trim();; //string diabetes
 			    Alzheimers = parts[9].trim();; //string Alzheimers
-			    
 			    
 			    InsurList.add(new Members(name, lastname, age, height, weight, 
 			    		BPSy, BPdias, cancer, diabetes, Alzheimers)); 
