@@ -100,6 +100,7 @@ public static void welcome() {
 				System.out.println("save in binary (B) Save in text (T) "
 						+ "save in xml (X)");
 				System.out.println("enter your choice: ");
+				sc.nextLine();
 				choice2 = sc.nextLine();
 				
 				if (choice2.equals("B")) {
@@ -113,15 +114,14 @@ public static void welcome() {
 		        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
 		        ReportWriter.writeMembersToScreen(readFromBin);
 				}
-			}
 		        if (choice2.equals("T")) {
 		        	
 		        }
 		        	
-		        	if (choice2.equals("X")) {
-		        		
+		        if (choice2.equals("X")) {		
 		        	
 				}
+			}
 				    
 				
 			
