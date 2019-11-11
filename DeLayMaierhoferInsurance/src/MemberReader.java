@@ -25,7 +25,11 @@ public class MemberReader {
             return null;
         }
     }
- /************************************************************************/ //Emily De Lay
+     /*@return 
+     * the function returns the file writen in binary
+     * if there is an error, the file returns nothing (null)
+     */ 
+	/************************************************************************/ //Emily De Lay
 	public static ArrayList<Members> readStudentsFromXML(String fname) {
 		try {
 			XMLDecoder dec = new XMLDecoder(new BufferedInputStream(new 
@@ -38,6 +42,10 @@ public class MemberReader {
 			return null;
 		}
 		}
+	 /*@return 
+	 * the function returns the xml file ,
+	 * if there is ann error, nothing will return (null)
+	 */	
 	/************************************************************************/ 
 	public static ArrayList<Members> readNamesFromTextFile(String fname) { 
 		try {
