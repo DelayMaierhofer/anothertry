@@ -127,6 +127,18 @@ public static void welcome() {
 		        	fname = sc.nextLine();
 		        	ReportWriter.writePeopleToXML(fname, InsurList);
 				}
+			} if (choice == 4) {
+				System.out.println("(T)ext, (B)inary, or (X)ML? ");
+				sc.nextLine();
+				choice2 = sc.nextLine();
+				
+				if (choice2.equals("B")) {
+					System.out.print("Enter name of input file: ");
+					sc.nextLine();
+					fname = sc.nextLine();
+					MemberReader.readFromBinary(fname);
+				}
+		
 			}
 				    
 				

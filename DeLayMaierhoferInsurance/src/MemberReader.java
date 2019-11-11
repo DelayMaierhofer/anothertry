@@ -15,14 +15,21 @@ import java.io.ObjectInputStream;
 public class MemberReader {
 	/************************************************************************/ //Emily De Laypublic class MemberReader {
     public static ArrayList<Members> readFromBinary(String fname) { //read from binary
-        try {
+        int count = 0;
+    	try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(fname));
-            @SuppressWarnings("unchecked")
+            //@SuppressWarnings("unchecked")
 			ArrayList<Members> result = (ArrayList<Members>)ois.readObject();
             ois.close();
+            for (Members r : result) {
+            	count = count + 1;
+            }
+            //ois.close();
+            System.out.printf("%d members were read.", count);
             return result;
         } catch (Exception ex) {
-            return null;
+        	ex.printStackTrace();
+        	return null;
         }
     }
      /*@return 
