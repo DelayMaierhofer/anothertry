@@ -6,8 +6,8 @@ import java.io.LineNumberReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-/*emily De Lay and Mackenzie Maierhofer's project
+/*
+ * @author emily De Lay and Mackenzie Maierhofer
  * insurence calculator
  * 
  * In this app we will be assigning 
