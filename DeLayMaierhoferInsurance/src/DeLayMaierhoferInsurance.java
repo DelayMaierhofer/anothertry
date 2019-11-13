@@ -1,4 +1,4 @@
-import java.io.File;
+	import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -6,7 +6,9 @@ import java.io.LineNumberReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Serializable;
 /*
+ * 
  * @author emily De Lay and Mackenzie Maierhofer
  * insurence calculator
  * 
@@ -103,7 +105,7 @@ public static void welcome() {
 				sc.nextLine(); //needs to read over a line
 				choice2 = sc.nextLine();
 				
-				if (choice2.equals("B")) {
+				if (choice2.equalsIgnoreCase("B")) {
 					
 					System.out.println("Going to write members in binary: ");
 					System.out.print("Enter filename: ");
@@ -114,43 +116,52 @@ public static void welcome() {
 		        //ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
 		        //ReportWriter.writeMembersToScreen(readFromBin);
 				}
-		        if (choice2.equals("T")) {
+		        if (choice2.equalsIgnoreCase("T")) {
 		        	System.out.println("Going to write members in a text file: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
 		        	ReportWriter.writeMembersToTextFile(fname, InsurList);
 		        }
 		        	
-		        if (choice2.equals("X")) {		
+		        if (choice2.equalsIgnoreCase("X")) {		
 		        	System.out.println("Going to write members to xml: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
 		        	ReportWriter.writePeopleToXML(fname, InsurList);
 				}
-			} if (choice == 4) {
-				System.out.println("(T)ext, (B)inary, or (X)ML? ");
+			} if (choice == 4) { 
+				// /Users/emilydelay/Desktop/binary.bin
+				// /Users/emilydelay/Desktop/insurance.txt
+		
+				System.out.println("(T)ext (B)inary, or (X)ML? ");
 				sc.nextLine();
 				choice2 = sc.nextLine();
 				
-				if (choice2.equals("B")) {
+				if (choice2.equalsIgnoreCase("B")) { //le binary woo
+					///Users/emilydelay/Desktop/binary.bin
+					System.out.print("read back from binary file \n");
 					System.out.print("Enter name of input file: ");
-					sc.nextLine();
-					fname = sc.nextLine();
-					MemberReader.readFromBinary(fname);
-				}
-				
-				if (choice2.equals("T")) {
+					fname = sc.next();
+					System.out.println("Now will read them back in.");
+			        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
+			        ReportWriter.writeMembersToScreen(readFromBin);
+				} if (choice2.equalsIgnoreCase("X")) { //le xml file ww
+					System.out.print("read back from xml file \n");
 					System.out.print("Enter name of input file: ");
-					sc.hasNextLine();
-					fname = sc.nextLine();
-					MemberReader.readFromTextOption4(fname);
+					
+				} if (choice2.equalsIgnoreCase("T")) { //le text file woo
+					System.out.print("read back from text file \n");
+					System.out.print("Enter name of input file: ");
+					
 				}
 		
+			} if (choice == 5) {
+				
+				
+			} if (choice == 6) {
+				
 			}
 				    
-				
-			
-			
 		}while (choice != 7);
 		
 		System.out.println("thanks for using this bye");
@@ -160,4 +171,3 @@ public static void welcome() {
  
 		
 
-	
