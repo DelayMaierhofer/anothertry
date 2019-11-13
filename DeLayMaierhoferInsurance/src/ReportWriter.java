@@ -2,6 +2,7 @@
 
 import java.io.FileOutputStream;
 
+
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.io.*;
 import java.beans.XMLEncoder;
+import java.io.Serializable;
 
 //writes the information to the screen
 
+//emily delay
 public class ReportWriter {
 
 	public static void writeMembersToScreen(ArrayList<Members> InsurList) { //writes to screen
@@ -20,7 +23,7 @@ public class ReportWriter {
 		}
 	}
 	
-public static boolean writeMembersToTextFile(String fname,   //write to txt file - Emily De Lay
+	   public static boolean writeMembersToTextFile(String fname,   //write to txt file - Emily De Lay
 			    ArrayList<Members> customer) {
 			        try {
    PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
@@ -33,7 +36,8 @@ public static boolean writeMembersToTextFile(String fname,   //write to txt file
 			            return false;
 			        }
 			    }
-public static boolean writePeopleToXML(String fname, //write to xml - Emily De Lay
+	   
+	    public static boolean writePeopleToXML(String fname, //write to xml - Emily De Lay
 	    	    ArrayList<Members> mem) {
 	    	        try {
 	    	        	
@@ -48,7 +52,7 @@ public static boolean writePeopleToXML(String fname, //write to xml - Emily De L
 	    	    }
 	   
 	
-public static boolean writeMembersToBinary(String fname,  //writes to binary function - Emily De Lay
+	public static boolean writeMembersToBinary(String fname,  //writes to binary function - Emily De Lay
 		    ArrayList<Members> customer) {
 		        try {
 		            ObjectOutputStream oof = new ObjectOutputStream(new FileOutputStream(fname));
@@ -56,11 +60,10 @@ public static boolean writeMembersToBinary(String fname,  //writes to binary fun
 		            oof.close();
 		            return true;
 		        } catch (Exception ex) {
+		        		ex.printStackTrace();
 		            return false;
 		        }
-		    }	
-
-	
+	}
 	//Mackenzie Maierhofer
 	public static void addNewMember(ArrayList<Members> InsurList) { //adds a new member to arraylist
 		Scanner sc = new Scanner(System.in);
