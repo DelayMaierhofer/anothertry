@@ -1,12 +1,13 @@
 //DeLay & Maierhofer 
-
-public class Members {
+import java.io.Serializable;
+public class Members implements Serializable {
 	/************************************************************************/
 	//VARIABLES 
 	private String name, lastname;
 	private int age, height, weight;
 	private int BPSy, BPdias;
-	private String cancer, diabetes, Alzheimers; 
+	private String cancer, diabetes, Alzheimers;
+	
 	/************************************************************************/ //Emily De Lay
 	//GETTERS AND SETTERS
 	public String getName() {
