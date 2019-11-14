@@ -150,7 +150,7 @@ public static void welcome() {
 					System.out.print("read back from xml file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
-					ArrayList<Members> fromXML = MemberReader.readMembersFromXML(fname);
+					ArrayList<Members> fromXML = MemberReader.readStudentsFromXML(fname);
 			        ReportWriter.writeMembersToScreen(InsurList);
 					
 				} if (choice2.equalsIgnoreCase("T")) { //le text file woo
@@ -162,7 +162,7 @@ public static void welcome() {
 				}
 				/************************************************************************/
 			} if (choice == 5) {
-				
+				Assessor.calcAgeRisk(InsurList);
 				
 			} if (choice == 6) {
 				System.out.print("Now will write to JSON. Enter file name: ");

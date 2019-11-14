@@ -1,5 +1,6 @@
 //DeLay & Maierhofer 
 import java.io.Serializable;
+import java.util.ArrayList;
 public class Members implements Serializable {
 	/************************************************************************/
 	//VARIABLES 
@@ -7,6 +8,7 @@ public class Members implements Serializable {
 	private int age, height, weight;
 	private int BPSy, BPdias;
 	private String cancer, diabetes, Alzheimers;
+	private ArrayList<Members> InsurList;
 	
 	/************************************************************************/ //Emily De Lay
 	//GETTERS AND SETTERS
