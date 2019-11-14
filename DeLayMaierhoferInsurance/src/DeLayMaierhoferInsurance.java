@@ -1,4 +1,4 @@
-	import java.io.File;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
@@ -148,17 +148,29 @@ public static void welcome() {
 				} if (choice2.equalsIgnoreCase("X")) { //le xml file ww
 					System.out.print("read back from xml file \n");
 					System.out.print("Enter name of input file: ");
+					fname = sc.next();
+					ArrayList<Members> fromXML = MemberReader.readMembersFromXML(fname);
+			        ReportWriter.writeMembersToScreen(InsurList);
 					
 				} if (choice2.equalsIgnoreCase("T")) { //le text file woo
 					System.out.print("read back from text file \n");
 					System.out.print("Enter name of input file: ");
-					
+					fname = sc.next();
+					ArrayList<Members> fromTxtFile = MemberReader.readNamesFromTextFile(fname);
+					ReportWriter.writeMembersToScreen(InsurList);
 				}
 		
 			} if (choice == 5) {
 				
 				
 			} if (choice == 6) {
+				System.out.print("Now will write to JSON. Enter file name: ");
+		        fname = sc.nextLine();
+		        if (ReportWriter.writeMembersToJSON(fname, InsurList)) {
+		            System.out.println("Yay");
+		        } else {
+		            System.out.println("Boo");
+		        }
 				
 			}
 				    
@@ -170,4 +182,3 @@ public static void welcome() {
 		}
  
 		
-
