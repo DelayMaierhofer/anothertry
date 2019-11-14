@@ -11,11 +11,43 @@ import java.util.ArrayList;
 import java.io.*;
 import java.beans.XMLEncoder;
 import java.io.Serializable;
+import org.json.simple.*;
 
 //writes the information to the screen
 
 //emily delay
 public class ReportWriter {
+	/*
+	 * this class consists of funtions that allow the data to be written into various
+	 * formats, a text file, binary, xml, JSON
+	 * also can write the data to the screen
+	 * 
+	 */
+	//I really dont know how to do this part so I will just leave this here 
+	public static boolean writeMembersToJSON(String fname, 
+			ArrayList<Members> insurList) {
+		try {
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new
+                FileWriter(fname)));
+            // create a JSON object for each student
+            JSONObject MemObj;
+            JSONArray array = new JSONArray();
+            for (in : insurList) {
+                MemObj = new JSONObject();
+                MemObj.put("customer", stu.getName());
+               
+                array.add(MemObj);
+            }
+            JSONObject outer = new JSONObject();
+            outer.put("Customers", array);
+            pw.println(outer.toJSONString());
+            pw.close();
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
+	}
+ 
 
 	public static void writeMembersToScreen(ArrayList<Members> InsurList) { //writes to screen
 		for (Members Insur : InsurList) {
@@ -65,6 +97,9 @@ public class ReportWriter {
 		        }
 	}
 	//Mackenzie Maierhofer
+	/*
+	 * addnew member function allows user to enter their own data
+	 */
 	public static void addNewMember(ArrayList<Members> InsurList) { //adds a new member to arraylist
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter first name: ");
@@ -93,3 +128,4 @@ public class ReportWriter {
 		System.out.println("The new member has been added.");
 	}
 }
+
