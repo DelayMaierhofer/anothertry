@@ -129,6 +129,7 @@ public static void welcome() {
 		        	fname = sc.nextLine();
 		        	ReportWriter.writePeopleToXML(fname, InsurList);
 				}
+		        /************************************************************************/
 			} if (choice == 4) { 
 				// /Users/emilydelay/Desktop/binary.bin
 				// /Users/emilydelay/Desktop/insurance.txt
@@ -159,7 +160,7 @@ public static void welcome() {
 					ArrayList<Members> fromTxtFile = MemberReader.readNamesFromTextFile(fname);
 					ReportWriter.writeMembersToScreen(InsurList);
 				}
-		
+				/************************************************************************/
 			} if (choice == 5) {
 				
 				
@@ -173,7 +174,7 @@ public static void welcome() {
 		        }
 				
 			}
-				    
+			/************************************************************************/		    
 		}while (choice != 7);
 		
 		System.out.println("thanks for using this bye");
@@ -181,4 +182,6 @@ public static void welcome() {
  }
 		}
  
+		
+
 		
