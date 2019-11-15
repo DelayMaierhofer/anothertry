@@ -1,8 +1,6 @@
 //DeLay & Maierhofer
 
 import java.io.FileOutputStream;
-
-
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -23,18 +21,26 @@ public class ReportWriter {
 	 * also can write the data to the screen
 	 * 
 	 */
-	//I really dont know how to do this part so I will just leave this here 
+
 	public static boolean writeMembersToJSON(String fname, 
 			ArrayList<Members> insurList) {
 		try {
-            PrintWriter pw = new PrintWriter(new BufferedWriter(new
-                FileWriter(fname)));
+            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
             // create a JSON object for each student
             JSONObject MemObj;
             JSONArray array = new JSONArray();
-            for (in : insurList) {
+            for (Members in : insurList) {
                 MemObj = new JSONObject();
-                MemObj.put("customer", stu.getName());
+                MemObj.put("First Name", in.getName());
+                MemObj.put("Last Name", in.getLastname());
+                MemObj.put("Age", in.getAge());
+                MemObj.put("Height", in.getHeight());
+                MemObj.put("Weight", in.getWeight());
+                MemObj.put("SYS BP", in.getBPSy());
+                MemObj.put("DIA BP", in.getBPdias());
+                MemObj.put("Cancer", in.getCancer());
+                MemObj.put("Diabetes", in.getDiabetes());
+                MemObj.put("alzheimers", in.getAlzheimers());
                
                 array.add(MemObj);
             }
