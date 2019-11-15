@@ -1,16 +1,12 @@
 import java.util.ArrayList;
-///
-
 //Maierhofer DeLay
-
 // calculates the health insurance score
-
-public class Assessor {
+public class Assessor { //Mackenzie
 	
-	public static int calcAgeRisk (Members m) {
+	public static int calcAgeRisk (Members m) { //accounts for the factor of age
 		int ageScore = 0;
 		int age = 0;
-		age = m.getAge();
+		age = m.getAge(); //get the age for this specific member
 		//System.out.println(age);
 		if (age <= 29) {
 			ageScore = 0;
@@ -28,18 +24,18 @@ public class Assessor {
 		return ageScore;
 	}
 	
-	public static int calcBMIRisk (Members m) {
+	public static int calcBMIRisk (Members m) { //account for the factor of BMI
 		int bScore = 0;
 		int age, height, weight; 
-		double weightKg;
-		double heightMeters;
+		double weightKg; //weight converted into Kg.
+		double heightMeters; //height converted into meters.
 		double BMI;
 		//System.out.println(m.getAge());
 		weight = m.getWeight();
 		weightKg = weight / 2.2046;
 		height = m.getHeight();
 		heightMeters = height / 39.3701;
-		BMI = weightKg / (heightMeters * heightMeters);
+		BMI = weightKg / (heightMeters * heightMeters); //BMI equation 
 		if (BMI >= 18.5 && BMI <= 24.9) {
 			bScore = bScore;
 		}
@@ -53,7 +49,7 @@ public class Assessor {
 		return bScore;
 	}
 	
-	public static int calcBPRisk (Members m) {
+	public static int calcBPRisk (Members m) { //accounts for the factor of BP
 		int BPScore = 0;
 		int BPSy = 0, BPdias = 0;
 		BPSy = m.getBPSy();
@@ -77,12 +73,12 @@ public class Assessor {
 		return BPScore;
 	}
 	
-	public static int calcFamD (Members m) {
+	public static int calcFamD (Members m) { //accounts for the factor of diabetes
 		String diabetes = null;
 		int Dscore = 0;
 		diabetes = m.getDiabetes();
 		//System.out.println(diabetes);
-		if (diabetes.equalsIgnoreCase("y")) {
+		if (diabetes.equalsIgnoreCase("y")) { //if theres a history, their score will be 10 
 			Dscore = 10;
 		}
 		else {
@@ -92,7 +88,7 @@ public class Assessor {
 		return Dscore;
 	}
 	
-	public static int calcFamC (Members m) {
+	public static int calcFamC (Members m) { //accounts for the factor of cancer
 		String cancer = null;
 		int CScore = 0;
 		cancer = m.getCancer();
@@ -106,7 +102,7 @@ public class Assessor {
 		return CScore;
 	}
 	
-	public static int calcFamA (Members m) {
+	public static int calcFamA (Members m) { //accounts for the factor of alzheimers
 		String Alzheimers = null;
 		int AScore = 0;
 		Alzheimers = m.getAlzheimers();
@@ -120,7 +116,7 @@ public class Assessor {
 		return AScore;
 	}
 	
-	public static int verdict (Members m) {
+	public static int verdict (Members m) { //creates a total assessment score and prints it out
 		int ageScore=0, bScore=0, BPScore=0,
 				Dscore=0, CScore=0, AScore=0;
 		String lastname = m.getLastname();
@@ -133,7 +129,7 @@ public class Assessor {
 		CScore = calcFamC(m);
 		AScore = calcFamA(m);
 		int total = ageScore + bScore + BPScore + Dscore + CScore + AScore;
-		System.out.println(total);
+		//System.out.println(total);
 		if (total <= 20) {
 			verdict = "low risk";
 		}
@@ -147,11 +143,10 @@ public class Assessor {
 			verdict = "uninsurable";
 		}
 		//System.out.println("Here are the insurance assessments: ");
-		System.out.printf("Name: %-10s, %s \n", lastname, name);
-		System.out.printf("Score: %-10d \n", total);
-		System.out.printf("Verdict: %-10s \n",verdict);
+		System.out.printf("Name: %20s, %s \n", lastname, name);
+		System.out.printf("Score: %26d \n", total);
+		System.out.printf("Verdict: %26s \n",verdict);
+		System.out.println();
 		return total;
-		
 	}
-
 }

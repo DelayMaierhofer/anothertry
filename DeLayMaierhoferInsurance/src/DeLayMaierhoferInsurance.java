@@ -19,14 +19,13 @@ import java.io.Serializable;
  * age, bmi, blood pressure, used by points
  */
 public class DeLayMaierhoferInsurance { 
-//static int count = 0;
 public static void welcome() { 
 	System.out.println("**********************************");
 	System.out.println("Welcome to the insurance app");
 	System.out.println("We take information based off of things such as age,"
 				+ " bmi, and blood pressure, in order to help determine insurance");
 	System.out.println("**********************************");
-	}
+}
  public static void Menu() { //the menu of options 
 	 System.out.println("1. List out the names (members) to screen");
 	 System.out.println("2. Add a new member ");
@@ -37,27 +36,6 @@ public static void welcome() {
 	 System.out.println("7. Exit");
 }
  // /Users/emilydelay/Desktop/insurance.txt
- public static void countmembers(String fname) throws Exception{
-	 int membercounter = 0;
-	  FileReader fr = new FileReader(fname);
-	  //needs to read file
-	  String member = "This is the number of members found: ";
-	    LineNumberReader count = new LineNumberReader(fr);
-	    
-	    
-          while (count.readLine() != null){
-        	  //since each member is on 1 line, 
-        	  //we will count each line of the file.
-      	membercounter++;
-          }
-
-          System.out.println(member + membercounter);
-          //prints output
-
-          count.close();
-	
- }
- 
  /**
  * @throws Exception **********************************************************************/ //emily de lay
  public static void main(String[] args) throws Exception { //this is the main 
@@ -71,14 +49,9 @@ public static void welcome() {
 		if (InsurList == null) {
 			System.out.println("Something bad happened ."); //OOF
 		} else {
+			
 		do { 
 		    System.out.println("**********************************");
-		    //try {
-				//countmembers(fname);
-			//} catch (IOException e) {
-				// TODO Auto-generated catch block
-				
-			//}
 			System.out.println("Here are your choices: ");
 		    Menu(); //shows menu to user
 		    System.out.println("Please enter your choice: ");
@@ -87,7 +60,6 @@ public static void welcome() {
 /************************************************************************/
 			if (choice == 1) {  //CHOICE 1 Emily De Lay
 			    System.out.println("The members:");
-
 			    System.out.println("**********************************");
 				ReportWriter.writeMembersToScreen(InsurList);
 				System.out.println("**********************************");
@@ -97,9 +69,9 @@ public static void welcome() {
 				 System.out.println("Now adding a new member...");
 				 ReportWriter.addNewMember(InsurList);
 			}
+/*************************************************************************/
 			 // /Users/emilydelay/Desktop/insurance.txt
 			if (choice == 3) {
-				
 				//save members
 				System.out.println("save in binary (B) Save in text (T) "
 						+ "save in xml (X)");
@@ -114,9 +86,6 @@ public static void welcome() {
 					fname = sc.nextLine();
 					ReportWriter.writeMembersToBinary(fname, InsurList);
 		        
-		        //System.out.println("Now will read them back in.");
-		        //ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
-		        //ReportWriter.writeMembersToScreen(readFromBin);
 				}
 		        if (choice2.equalsIgnoreCase("T")) {
 		        	System.out.println("Going to write members in a text file: ");
@@ -131,7 +100,7 @@ public static void welcome() {
 		        	fname = sc.nextLine();
 		        	ReportWriter.writePeopleToXML(fname, InsurList);
 				}
-		        /************************************************************************/
+/***********************************************************************************/
 			} if (choice == 4) { 
 				// /Users/emilydelay/Desktop/binary.bin
 				// /Users/emilydelay/Desktop/insurance.txt
@@ -162,18 +131,13 @@ public static void welcome() {
 					ArrayList<Members> fromTxtFile = MemberReader.readNamesFromTextFile(fname);
 					ReportWriter.writeMembersToScreen(InsurList);
 				}
-				/************************************************************************/
+/**********************************************************************************************/
 			} if (choice == 5) {
+				System.out.println("Here are the insurance assessments: ");
 				for (Members m : InsurList) {
-					//Assessor.calcAgeRisk(m);
-					//Assessor.calcBMIRisk(m);
-					//Assessor.calcBPRisk(m);
-					//Assessor.calcFamD(m);
-					//Assessor.calcFamC(m);
-					//Assessor.calcFamA(m);
 					Assessor.verdict(m);
 				}
-				
+/***********************************************************************************************/				
 			} if (choice == 6) {
 				System.out.print("Now will write to JSON. Enter file name: ");
 		        fname = sc.nextLine();
@@ -184,14 +148,10 @@ public static void welcome() {
 		        }
 				
 			}
-			/************************************************************************/		    
+/***********************************************************************************************/		    
 		}while (choice != 7);
-		
 		System.out.println("thanks for using this bye");
 		}
  }
 		}
- 
-		
 
-		
