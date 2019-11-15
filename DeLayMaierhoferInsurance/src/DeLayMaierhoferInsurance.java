@@ -162,10 +162,16 @@ public static void welcome() {
 				}
 				/************************************************************************/
 			} if (choice == 5) {
-				//Assessor.calcAgeRisk(InsurList);
-				//Assessor.calcBMIRisk(InsurList);
-				//Assessor.calcBPRisk(InsurList);
-				Assessor.calcFamD(InsurList);
+				for (Members m : InsurList) {
+					//Assessor.calcAgeRisk(m);
+					//Assessor.calcBMIRisk(m);
+					//Assessor.calcBPRisk(m);
+					//Assessor.calcFamD(m);
+					//Assessor.calcFamC(m);
+					//Assessor.calcFamA(m);
+					Assessor.verdict(m);
+				}
+				
 			} if (choice == 6) {
 				System.out.print("Now will write to JSON. Enter file name: ");
 		        fname = sc.nextLine();
