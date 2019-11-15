@@ -163,7 +163,9 @@ public static void welcome() {
 				/************************************************************************/
 			} if (choice == 5) {
 				//Assessor.calcAgeRisk(InsurList);
-				Assessor.calcBMIRisk(InsurList);
+				//Assessor.calcBMIRisk(InsurList);
+				//Assessor.calcBPRisk(InsurList);
+				Assessor.calcFamD(InsurList);
 			} if (choice == 6) {
 				System.out.print("Now will write to JSON. Enter file name: ");
 		        fname = sc.nextLine();

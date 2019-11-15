@@ -7,30 +7,30 @@ import java.util.ArrayList;
 public class Assessor {
 	
 	public static int calcAgeRisk (ArrayList<Members> InsurList) {
-		int score = 0;
+		int ageScore = 0;
 		int age = 0;
 		for (Members m : InsurList) {
 			age = m.getAge();
 			//System.out.println(age);
 			if (age <= 29) {
-				score = 0;
+				ageScore = 0;
 			}
 			else if (age >= 30 && age < 45) {
-				score = 10;
+				ageScore = 10;
 			}
 			else if (age >= 45 && age < 60) {
-				score = 20;
+				ageScore = 20;
 			}
 			else {
-				score = 30;
+				ageScore = 30;
 			}
 			//System.out.println(score);
 		}
-		return score;
+		return ageScore;
 	}
 	
 	public static int calcBMIRisk (ArrayList<Members> InsurList) {
-		int score = 0;
+		int bScore = 0;
 		int age, height, weight; 
 		double weightKg;
 		double heightMeters;
@@ -42,27 +42,64 @@ public class Assessor {
 			height = m.getHeight();
 			heightMeters = height / 39.3701;
 			BMI = weightKg / (heightMeters * heightMeters);
-			score = calcAgeRisk(InsurList);
 			if (BMI >= 18.5 && BMI <= 24.9) {
-				score = score;
+				bScore = bScore;
 			}
-			if (BMI >= 25 && BMI <= 29.9) {
-				score = score + 30;
+			else if (BMI >= 25 && BMI <= 29.9) {
+				bScore = 30;
 			}
 			else {
-				score = score + 75;
+				bScore = 75;
 			}
-			System.out.println(score);
+			System.out.println(bScore);
 		}
 		
-		return score;
+		return bScore;
 	}
 	
-	public static int calcRiskScore (ArrayList<Members> InsurList) {
-		int age;
+	public static int calcBPRisk (ArrayList<Members> InsurList) {
+		int BPScore = 0;
+		int BPSy = 0, BPdias = 0;
 		for (Members m : InsurList) {
-			age = ((ArrayList<Members>) InsurList).getAge();
+			BPSy = m.getBPSy();
+			BPdias = m.getBPdias();
+			if (BPSy < 120 && BPdias < 80) { //normal
+				BPScore = BPScore;
+			}
+			else if (BPSy <= 129 && BPdias < 80) { //elevated
+				BPScore = 15;
+			}
+			else if (BPSy <= 139 || BPdias < 89) { //stage 1
+				BPScore = 30;
+			}
+			else if (BPSy >= 140 || BPdias >= 90) { //stage 2
+				BPScore = 75;
+			}
+			else if (BPSy > 180 || BPdias > 120) { //crisis
+				BPScore = 100;
+			}
+			System.out.println(BPScore);
 		}
+		return BPScore;
+	}
+	
+	public static int calcFamD (ArrayList<Members> InsurList) {
+		String diabetes = null;
+		String d = "y";
+		int Dscore = 0;
+		for (Members m : InsurList) {
+			diabetes = m.getDiabetes();
+			System.out.println(diabetes);
+			if (diabetes.equals(d)) {
+				Dscore = 10;
+			}
+			else {
+				Dscore = Dscore;
+			}
+			
+			System.out.println(Dscore);
+		}
+		return Dscore;
 	}
 
 }
