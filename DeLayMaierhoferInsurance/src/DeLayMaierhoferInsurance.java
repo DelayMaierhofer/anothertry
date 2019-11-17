@@ -1,13 +1,5 @@
-import java.io.File;
-
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.Serializable;
 //
 /*
  * 
@@ -105,7 +97,7 @@ public static void welcome() {
 				// /Users/emilydelay/Desktop/binary.bin
 				// /Users/emilydelay/Desktop/insurance.txt
 		
-				System.out.println("((B)inary, (T)ext or (X)ML? ");
+				System.out.println("Load from (B)inary, load from (T)ext, or load from (X)ML? ");
 				sc.nextLine();
 				choice2 = sc.nextLine();
 				
