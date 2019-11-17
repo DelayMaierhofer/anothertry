@@ -116,12 +116,9 @@ public class Assessor { //Mackenzie
 		return AScore;
 	}
 	
-	public static int verdict (Members m) { //creates a total assessment score and prints it out
+	public static int tScore (Members m) { //creates a total assessment score and prints it out
 		int ageScore=0, bScore=0, BPScore=0,
 				Dscore=0, CScore=0, AScore=0;
-		String lastname = m.getLastname();
-		String name = m.getName();
-		String verdict = null;
 		ageScore = calcAgeRisk(m);
 		bScore = calcBMIRisk(m);
 		BPScore = calcBPRisk(m);
@@ -130,23 +127,6 @@ public class Assessor { //Mackenzie
 		AScore = calcFamA(m);
 		int total = ageScore + bScore + BPScore + Dscore + CScore + AScore;
 		//System.out.println(total);
-		if (total <= 20) {
-			verdict = "low risk";
-		}
-		else if (total <= 50) {
-			verdict = "moderate risk";
-		}
-		else if (total <= 75) {
-			verdict = "high risk";
-		}
-		else {
-			verdict = "uninsurable";
-		}
-		//System.out.println("Here are the insurance assessments: ");
-		System.out.printf("Name: %20s, %s \n", lastname, name);
-		System.out.printf("Score: %26d \n", total);
-		System.out.printf("Verdict: %26s \n",verdict);
-		System.out.println();
 		return total;
 	}
 }

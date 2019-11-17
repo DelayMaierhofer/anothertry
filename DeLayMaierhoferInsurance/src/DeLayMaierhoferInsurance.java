@@ -136,13 +136,9 @@ public static void welcome() {
 <<<<<<< HEAD
 				System.out.println("Here are the insurance assessments: ");
 				for (Members m : InsurList) {
-					Assessor.verdict(m);
+					InsuranceScoreWriter.verdict(m);
 				}
 /***********************************************************************************************/				
-=======
-				for (Members m : InsurList) {
-					Assessor.verdict(m);
-				}
 				
 >>>>>>> branch 'master' of https://github.com/DelayMaierhofer/anothertry.git
 	

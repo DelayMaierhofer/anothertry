@@ -16,7 +16,7 @@ import org.json.simple.*;
 //emily delay
 public class MemberWriter {
 	/*
-	 * this class consists of funtions that allow the data to be written into various
+	 * this class consists of functions that allow the data to be written into various
 	 * formats, a text file, binary, xml, JSON
 	 * also can write the data to the screen
 	 * 

@@ -52,7 +52,7 @@ public class MemberReader {
 		}
 	 /*@return 
 	 * the function returns the xml file ,
-	 * if there is ann error, nothing will return (null)
+	 * if there is an error, nothing will return (null)
 	 */	
 	/************************************************************************/ 
 	public static ArrayList<Members> readNamesFromTextFile(String fname) { 
