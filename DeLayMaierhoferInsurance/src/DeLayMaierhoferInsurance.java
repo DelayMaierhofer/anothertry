@@ -61,13 +61,13 @@ public static void welcome() {
 			if (choice == 1) {  //CHOICE 1 Emily De Lay
 			    System.out.println("The members:");
 			    System.out.println("**********************************");
-				ReportWriter.writeMembersToScreen(InsurList);
+				MemberWriter.writeMembersToScreen(InsurList);
 				System.out.println("**********************************");
 			}
 /************************************************************************/
 			if (choice == 2) { //CHOICE 2 Mackenzie Maierhofer
 				 System.out.println("Now adding a new member...");
-				 ReportWriter.addNewMember(InsurList);
+				 MemberWriter.addNewMember(InsurList);
 			}
 /*************************************************************************/
 			 // /Users/emilydelay/Desktop/insurance.txt
@@ -84,21 +84,21 @@ public static void welcome() {
 					System.out.println("Going to write members in binary: ");
 					System.out.print("Enter filename: ");
 					fname = sc.nextLine();
-					ReportWriter.writeMembersToBinary(fname, InsurList);
+					MemberWriter.writeMembersToBinary(fname, InsurList);
 		        
 				}
 		        if (choice2.equalsIgnoreCase("T")) {
 		        	System.out.println("Going to write members in a text file: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
-		        	ReportWriter.writeMembersToTextFile(fname, InsurList);
+		        	MemberWriter.writeMembersToTextFile(fname, InsurList);
 		        }
 		        	
 		        if (choice2.equalsIgnoreCase("X")) {		
 		        	System.out.println("Going to write members to xml: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
-		        	ReportWriter.writePeopleToXML(fname, InsurList);
+		        	MemberWriter.writePeopleToXML(fname, InsurList);
 				}
 /***********************************************************************************/
 			} if (choice == 4) { 
@@ -116,32 +116,40 @@ public static void welcome() {
 					fname = sc.next();
 					System.out.println("Now will read them back in.");
 			        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
-			        ReportWriter.writeMembersToScreen(readFromBin);
+			        MemberWriter.writeMembersToScreen(readFromBin);
 				} if (choice2.equalsIgnoreCase("X")) { //le xml file ww
 					System.out.print("read back from xml file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
 					ArrayList<Members> fromXML = MemberReader.readStudentsFromXML(fname);
-			        ReportWriter.writeMembersToScreen(InsurList);
+			        MemberWriter.writeMembersToScreen(InsurList);
 					
 				} if (choice2.equalsIgnoreCase("T")) { //le text file woo
 					System.out.print("read back from text file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
 					ArrayList<Members> fromTxtFile = MemberReader.readNamesFromTextFile(fname);
-					ReportWriter.writeMembersToScreen(InsurList);
+					MemberWriter.writeMembersToScreen(InsurList);
 				}
 /**********************************************************************************************/
 			} if (choice == 5) {
+<<<<<<< HEAD
 				System.out.println("Here are the insurance assessments: ");
 				for (Members m : InsurList) {
 					Assessor.verdict(m);
 				}
 /***********************************************************************************************/				
+=======
+				for (Members m : InsurList) {
+					Assessor.verdict(m);
+				}
+				
+>>>>>>> branch 'master' of https://github.com/DelayMaierhofer/anothertry.git
+	
 			} if (choice == 6) {
 				System.out.print("Now will write to JSON. Enter file name: ");
 		        fname = sc.nextLine();
-		        if (ReportWriter.writeMembersToJSON(fname, InsurList)) {
+		        if (MemberWriter.writeMembersToJSON(fname, InsurList)) {
 		            System.out.println("Yay");
 		        } else {
 		            System.out.println("Boo");
