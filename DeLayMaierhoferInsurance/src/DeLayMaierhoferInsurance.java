@@ -21,9 +21,9 @@ import java.io.Serializable;
 public class DeLayMaierhoferInsurance { 
 public static void welcome() { 
 	System.out.println("**********************************");
-	System.out.println("Welcome to the insurance app");
-	System.out.println("We take information based off of things such as age,"
-				+ " bmi, and blood pressure, in order to help determine insurance");
+	System.out.println("Welcome to the Insurance App");
+	System.out.println("We take information based off of things such as age, \n"
+				+ "BMI, and blood pressure, in order to help determine insurance coverage.");
 	System.out.println("**********************************");
 }
  public static void Menu() { //the menu of options 
@@ -73,29 +73,29 @@ public static void welcome() {
 			 // /Users/emilydelay/Desktop/insurance.txt
 			if (choice == 3) {
 				//save members
-				System.out.println("save in binary (B) Save in text (T) "
-						+ "save in xml (X)");
-				System.out.println("enter your choice: ");
+				System.out.println("Save in (B)inary, save in (T)ext, "
+						+ "save in (X)ML ?");
+				System.out.println("Enter your choice: ");
 				sc.nextLine(); //needs to read over a line
 				choice2 = sc.nextLine();
 				
 				if (choice2.equalsIgnoreCase("B")) {
 					
-					System.out.println("Going to write members in binary: ");
+					System.out.println("Going to save members to binary: ");
 					System.out.print("Enter filename: ");
 					fname = sc.nextLine();
 					MemberWriter.writeMembersToBinary(fname, InsurList);
 		        
 				}
 		        if (choice2.equalsIgnoreCase("T")) {
-		        	System.out.println("Going to write members in a text file: ");
+		        	System.out.println("Going to save members to a text file: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
 		        	MemberWriter.writeMembersToTextFile(fname, InsurList);
 		        }
 		        	
 		        if (choice2.equalsIgnoreCase("X")) {		
-		        	System.out.println("Going to write members to xml: ");
+		        	System.out.println("Going to save members to XML: ");
 		        	System.out.print("Enter filename: ");
 		        	fname = sc.nextLine();
 		        	MemberWriter.writePeopleToXML(fname, InsurList);
@@ -105,56 +105,54 @@ public static void welcome() {
 				// /Users/emilydelay/Desktop/binary.bin
 				// /Users/emilydelay/Desktop/insurance.txt
 		
-				System.out.println("(T)ext (B)inary, or (X)ML? ");
+				System.out.println("((B)inary, (T)ext or (X)ML? ");
 				sc.nextLine();
 				choice2 = sc.nextLine();
 				
 				if (choice2.equalsIgnoreCase("B")) { //le binary woo
 					///Users/emilydelay/Desktop/binary.bin
-					System.out.print("read back from binary file \n");
+					System.out.print("Read back from binary file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
-					System.out.println("Now will read them back in.");
 			        ArrayList<Members> readFromBin = MemberReader.readFromBinary(fname);
 			        MemberWriter.writeMembersToScreen(readFromBin);
+			        
 				} if (choice2.equalsIgnoreCase("X")) { //le xml file ww
-					System.out.print("read back from xml file \n");
+					System.out.print("Read back from XML file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
 					ArrayList<Members> fromXML = MemberReader.readStudentsFromXML(fname);
 			        MemberWriter.writeMembersToScreen(InsurList);
 					
 				} if (choice2.equalsIgnoreCase("T")) { //le text file woo
-					System.out.print("read back from text file \n");
+					System.out.print("Read back from text file \n");
 					System.out.print("Enter name of input file: ");
 					fname = sc.next();
-					ArrayList<Members> fromTxtFile = MemberReader.readNamesFromTextFile(fname);
+					MemberReader.readNamesFromTextFile(fname);
 					MemberWriter.writeMembersToScreen(InsurList);
 				}
 /**********************************************************************************************/
 			} if (choice == 5) {
-<<<<<<< HEAD
-				System.out.println("Here are the insurance assessments: ");
+
+				System.out.println("Here are the insurance assessments: \n");
 				for (Members m : InsurList) {
 					InsuranceScoreWriter.verdict(m);
 				}
 /***********************************************************************************************/				
-				
->>>>>>> branch 'master' of https://github.com/DelayMaierhofer/anothertry.git
-	
 			} if (choice == 6) {
-				System.out.print("Now will write to JSON. Enter file name: ");
+				System.out.println("Now will write to JSON. Enter file name: ");
+				sc.nextLine();
 		        fname = sc.nextLine();
-		        if (MemberWriter.writeMembersToJSON(fname, InsurList)) {
-		            System.out.println("Yay");
+		        if (InsuranceScoreWriter.writeMembersToJSON(fname, InsurList) == true) {
+		            System.out.println("The scores were written successfully!");
 		        } else {
-		            System.out.println("Boo");
+		            System.out.println("Something went wrong. Please try again.");
 		        }
 				
 			}
 /***********************************************************************************************/		    
 		}while (choice != 7);
-		System.out.println("thanks for using this bye");
+		System.out.println("Thanks for using the Insurance App, goodbye!");
 		}
  }
 		}

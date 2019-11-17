@@ -17,43 +17,11 @@ import org.json.simple.*;
 public class MemberWriter {
 	/*
 	 * this class consists of functions that allow the data to be written into various
-	 * formats, a text file, binary, xml, JSON
+	 * formats, a text file, binary, xml,
 	 * also can write the data to the screen
 	 * 
 	 */
 
-	public static boolean writeMembersToJSON(String fname, 
-			ArrayList<Members> insurList) {
-		try {
-            PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fname)));
-            // create a JSON object for each student
-            JSONObject MemObj;
-            JSONArray array = new JSONArray();
-            for (Members in : insurList) {
-                MemObj = new JSONObject();
-                MemObj.put("First Name", in.getName());
-                MemObj.put("Last Name", in.getLastname());
-                MemObj.put("Age", in.getAge());
-                MemObj.put("Height", in.getHeight());
-                MemObj.put("Weight", in.getWeight());
-                MemObj.put("SYS BP", in.getBPSy());
-                MemObj.put("DIA BP", in.getBPdias());
-                MemObj.put("Cancer", in.getCancer());
-                MemObj.put("Diabetes", in.getDiabetes());
-                MemObj.put("alzheimers", in.getAlzheimers());
-               
-                array.add(MemObj);
-            }
-            JSONObject outer = new JSONObject();
-            outer.put("Customers", array);
-            pw.println(outer.toJSONString());
-            pw.close();
-            return true;
-        } catch (Exception ex) {
-            return false;
-        }
-	}
- 
 
 	public static void writeMembersToScreen(ArrayList<Members> InsurList) { //writes to screen
 		for (Members Insur : InsurList) {

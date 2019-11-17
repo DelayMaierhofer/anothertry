@@ -117,7 +117,4 @@ public class Members implements Serializable {
 				name, lastname, age, height, weight,
 				BPSy, BPdias, cancer, diabetes, Alzheimers);
 	}
-	
-	
 }
-
