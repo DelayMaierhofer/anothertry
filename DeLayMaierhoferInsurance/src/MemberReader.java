@@ -1,4 +1,5 @@
 /*//DeLay & Maierhofer  
+
 *Member Reader Class- Emily De Lay
  *This class is meant to read the tabbed file
  *And put it into an array list
@@ -67,6 +68,7 @@ public class MemberReader {
 			String diabetes; String Alzheimers;
 			/************************************************************************/ //Emily De Lay
 			//breaks the tabbed file up in parts 
+			count = 0;
 			while (fsc.hasNextLine()) {
 				line = fsc.nextLine().trim();
 				parts = line.split("\t"); //the file is tab 
@@ -84,10 +86,12 @@ public class MemberReader {
 			    
 			    InsurList.add(new Members(name, lastname, age, height, weight, 
 			    		BPSy, BPdias, cancer, diabetes, Alzheimers)); 
+			    count = count + 1;
 			 /************************************************************************/
 			}
 			
 			fsc.close(); //closing the file
+			System.out.printf("%d members were read in.\n",count);
 			return InsurList; //returns the array list 
 			
 		}catch (Exception ex){
